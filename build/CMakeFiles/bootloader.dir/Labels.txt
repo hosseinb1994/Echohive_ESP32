@@ -1,0 +1,13 @@
+# Target labels
+ bootloader
+# Source files and their labels
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/CMakeFiles/bootloader
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/CMakeFiles/bootloader.rule
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/CMakeFiles/bootloader-complete.rule
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

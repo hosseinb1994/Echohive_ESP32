@@ -1,0 +1,2 @@
+source /home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader/gdbinit/symbols
+source /home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader/gdbinit/connect
