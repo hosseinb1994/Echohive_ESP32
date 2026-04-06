@@ -11,8 +11,8 @@
 #include "nvs_flash.h"
 #include "mqtt_client.h"
 // ─── WiFi credentials ────────────────────────────────────────────────────────
-#define WIFI_SSID      "Vodafone-DE8C"
-#define WIFI_PASSWORD  "cATGTgZELqck2hPK"
+#define WIFI_SSID      "Wifi_SSID"
+#define WIFI_PASSWORD  "Wifi_Password"
 
 // ─── AWS IoT endpoint ────────────────────────────────────────────────────────
 // You will get this string from AWS Console (looks like xxxxx.iot.eu-west-1.amazonaws.com)
