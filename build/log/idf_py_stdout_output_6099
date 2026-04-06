@@ -1,0 +1,1470 @@
+Command: /home/hossein/.espressif/python_env/idf5.5_py3.12_env/bin/python /home/hossein/esp/esp-idf/tools/idf_monitor.py -p /dev/ttyUSB1 -b 115200 --toolchain-prefix xtensa-esp32-elf- --target esp32 --revision 0 /home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/Ecohive_ESP32.elf /home/hossein/Private/ESP32_Ecohive/Ecohive_ESP32/build/bootloader/bootloader.elf -m '/home/hossein/.espressif/python_env/idf5.5_py3.12_env/bin/python' '/home/hossein/esp/esp-idf/tools/idf.py'
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+flash read err, 1000
+ets_main.c 371 
+ets Jun  8 2016 00:22:57
+
+rst:0x10 (RTCWDT_RTC_RESET),boot:0x13 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:6380
+ho 0 tail 12 room 4
+load:0x40078000,len:15916
+load:0x40080400,len:3860
+entry 0x40080638
+[0;32mI (29) boot: ESP-IDF v5.5.1-dirty 2nd stage bootloader[0m
+[0;32mI (29) boot: compile time Apr  6 2026 13:04:01[0m
+[0;32mI (29) boot: Multicore bootloader[0m
+[0;32mI (31) boot: chip revision: v1.0[0m
+[0;32mI (34) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (37) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (41) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (45) boot: Enabling RNG early entropy source...[0m
+[0;32mI (49) boot: Partition Table:[0m
+[0;32mI (52) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (58) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (65) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (71) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (78) boot: End of partition table[0m
+[0;32mI (81) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=1fec0h (130752) map[0m
+[0;32mI (133) esp_image: segment 1: paddr=0002fee8 vaddr=3ffb0000 size=00130h (   304) load[0m
+[0;32mI (133) esp_image: segment 2: paddr=00030020 vaddr=400d0020 size=a0dc8h (658888) map[0m
+[0;32mI (362) esp_image: segment 3: paddr=000d0df0 vaddr=3ffb0130 size=03dfch ( 15868) load[0m
+[0;32mI (368) esp_image: segment 4: paddr=000d4bf4 vaddr=40080000 size=187ach (100268) load[0m
+[0;32mI (407) esp_image: segment 5: paddr=000ed3a8 vaddr=50000000 size=00020h (    32) load[0m
+[0;32mI (419) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (420) boot: Disabling RNG early entropy source...[0m
+[0;32mI (430) cpu_start: Multicore app[0m
+[0;32mI (438) cpu_start: Pro cpu start user code[0m
+[0;32mI (439) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (439) app_init: Application information:[0m
+[0;32mI (439) app_init: Project name:     Ecohive_ESP32[0m
+[0;32mI (443) app_init: App version:      bd19f8e-dirty[0m
+[0;32mI (447) app_init: Compile time:     Apr  6 2026 13:03:53[0m
+[0;32mI (452) app_init: ELF file SHA256:  ff53993a1...[0m
+[0;32mI (457) app_init: ESP-IDF:          v5.5.1-dirty[0m
+[0;32mI (461) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (465) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (469) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (473) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (479) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (484) heap_init: At 3FFB86A8 len 00027958 (158 KiB): DRAM[0m
+[0;32mI (489) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (495) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (500) heap_init: At 400987AC len 00007854 (30 KiB): IRAM[0m
+[0;32mI (507) spi_flash: detected chip: generic[0m
+[0;32mI (509) spi_flash: flash io: dio[0m
+[0;33mW (512) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (526) main_task: Started on CPU0[0m
+[0;32mI (536) main_task: Calling app_main()[0m
+[0;32mI (576) wifi:wifi driver task: 3ffc06a0, prio:23, stack:6656, core=0[0m
+[0;32mI (586) wifi:wifi firmware version: 14da9b7[0m
+[0;32mI (586) wifi:wifi certification version: v7.0[0m
+[0;32mI (596) wifi:config NVS flash: enabled[0m
+[0;32mI (596) wifi:config nano formatting: disabled[0m
+[0;32mI (596) wifi:Init data frame dynamic rx buffer num: 32[0m
+[0;32mI (596) wifi:Init static rx mgmt buffer num: 5[0m
+[0;32mI (606) wifi:Init management short buffer num: 32[0m
+[0;32mI (606) wifi:Init dynamic tx buffer num: 32[0m
+[0;32mI (616) wifi:Init static rx buffer size: 1600[0m
+[0;32mI (616) wifi:Init static rx buffer num: 10[0m
+[0;32mI (616) wifi:Init dynamic rx buffer num: 32[0m
+[0;32mI (626) wifi_init: rx ba win: 6[0m
+[0;32mI (626) wifi_init: accept mbox: 6[0m
+[0;32mI (626) wifi_init: tcpip mbox: 32[0m
+[0;32mI (636) wifi_init: udp mbox: 6[0m
+[0;32mI (636) wifi_init: tcp mbox: 6[0m
+[0;32mI (636) wifi_init: tcp tx win: 5760[0m
+[0;32mI (646) wifi_init: tcp rx win: 5760[0m
+[0;32mI (646) wifi_init: tcp mss: 1440[0m
+[0;32mI (646) wifi_init: WiFi IRAM OP enabled[0m
+[0;32mI (656) wifi_init: WiFi RX IRAM OP enabled[0m
+[0;32mI (656) phy_init: phy_version 4861,b71b5ad,Aug  5 2025,11:16:06[0m
+[0;32mI (736) wifi:mode : sta (7c:9e:bd:61:24:48)[0m
+[0;32mI (736) wifi:enable tsf[0m
+[0;32mI (746) ESP32_AWS: Connecting to WiFi: Vodafone-DE8C[0m
+[0;32mI (756) wifi:new:<11,0>, old:<1,0>, ap:<255,255>, sta:<11,0>, prof:1, snd_ch_cfg:0x0[0m
+[0;32mI (756) wifi:state: init -> auth (0xb0)[0m
+[0;32mI (766) wifi:state: auth -> assoc (0x0)[0m
+[0;32mI (766) wifi:state: assoc -> run (0x10)[0m
+[0;32mI (786) wifi:connected with Vodafone-DE8C, aid = 21, channel 11, BW20, bssid = 98:9d:5d:8b:de:90[0m
+[0;32mI (786) wifi:security: WPA2-PSK, phy: bgn, rssi: -47[0m
+[0;32mI (786) wifi:pm start, type: 1[0m
+
+[0;32mI (786) wifi:dp: 1, bi: 102400, li: 3, scale listen interval from 307200 us to 307200 us[0m
+[0;32mI (806) wifi:AP's beacon interval = 102400 us, DTIM period = 1[0m
+[0;32mI (816) wifi:<ba-add>idx:0 (ifx:0, 98:9d:5d:8b:de:90), tid:6, ssn:1, winSize:64[0m
+[0;32mI (1836) esp_netif_handlers: sta ip: 192.168.0.65, mask: 255.255.255.0, gw: 192.168.0.1[0m
+[0;32mI (1836) ESP32_AWS: Got IP: 192.168.0.65[0m
+[0;32mI (1836) ESP32_AWS: WiFi connected![0m
+[0;32mI (1846) ESP32_AWS: Waiting for MQTT connection...[0m
+[0;32mI (1846) wifi:<ba-add>idx:1 (ifx:0, 98:9d:5d:8b:de:90), tid:0, ssn:1, winSize:64[0m
+[1;31mE (1906) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1906) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1916) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1916) esp-tls: Failed to open new connection[0m
+[1;31mE (1926) transport_base: Failed to open a new connection[0m
+[1;31mE (1926) mqtt_client: Error transport connect[0m
+[1;31mE (1936) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1936) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (16996) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (16996) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (17006) esp-tls: create_ssl_handle failed[0m
+[1;31mE (17006) esp-tls: Failed to open new connection[0m
+[1;31mE (17006) transport_base: Failed to open a new connection[0m
+[1;31mE (17016) mqtt_client: Error transport connect[0m
+[1;31mE (17016) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (17026) ESP32_AWS: MQTT disconnected[0m
+[0;32mI (21846) ESP32_AWS: SPI slave ready, waiting for STM32...[0m
+[1;31mE (32066) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (32066) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (32076) esp-tls: create_ssl_handle failed[0m
+[1;31mE (32076) esp-tls: Failed to open new connection[0m
+[1;31mE (32086) transport_base: Failed to open a new connection[0m
+[1;31mE (32086) mqtt_client: Error transport connect[0m
+[1;31mE (32096) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (32096) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (47136) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (47136) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (47146) esp-tls: create_ssl_handle failed[0m
+[1;31mE (47146) esp-tls: Failed to open new connection[0m
+[1;31mE (47156) transport_base: Failed to open a new connection[0m
+[1;31mE (47166) mqtt_client: Error transport connect[0m
+[1;31mE (47166) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (47166) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (62296) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (62296) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (62306) esp-tls: create_ssl_handle failed[0m
+[1;31mE (62306) esp-tls: Failed to open new connection[0m
+[1;31mE (62306) transport_base: Failed to open a new connection[0m
+[1;31mE (62316) mqtt_client: Error transport connect[0m
+[1;31mE (62316) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (62326) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (77366) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (77366) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (77376) esp-tls: create_ssl_handle failed[0m
+[1;31mE (77376) esp-tls: Failed to open new connection[0m
+[1;31mE (77376) transport_base: Failed to open a new connection[0m
+[1;31mE (77386) mqtt_client: Error transport connect[0m
+[1;31mE (77386) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (77396) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (92566) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (92566) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (92576) esp-tls: create_ssl_handle failed[0m
+[1;31mE (92576) esp-tls: Failed to open new connection[0m
+[1;31mE (92586) transport_base: Failed to open a new connection[0m
+[1;31mE (92586) mqtt_client: Error transport connect[0m
+[1;31mE (92596) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (92596) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (107726) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (107726) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (107726) esp-tls: create_ssl_handle failed[0m
+[1;31mE (107736) esp-tls: Failed to open new connection[0m
+[1;31mE (107736) transport_base: Failed to open a new connection[0m
+[1;31mE (107746) mqtt_client: Error transport connect[0m
+[1;31mE (107746) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (107756) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (122806) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (122806) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (122816) esp-tls: create_ssl_handle failed[0m
+[1;31mE (122816) esp-tls: Failed to open new connection[0m
+[1;31mE (122826) transport_base: Failed to open a new connection[0m
+[1;31mE (122836) mqtt_client: Error transport connect[0m
+[1;31mE (122836) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (122836) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (132876) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (132876) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (132886) esp-tls: create_ssl_handle failed[0m
+[1;31mE (132896) esp-tls: Failed to open new connection[0m
+[1;31mE (132896) transport_base: Failed to open a new connection[0m
+[1;31mE (132906) mqtt_client: Error transport connect[0m
+[1;31mE (132906) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (132906) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (142956) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (142956) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (142956) esp-tls: create_ssl_handle failed[0m
+[1;31mE (142966) esp-tls: Failed to open new connection[0m
+[1;31mE (142966) transport_base: Failed to open a new connection[0m
+[1;31mE (142976) mqtt_client: Error transport connect[0m
+[1;31mE (142976) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (142976) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (158026) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (158026) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (158026) esp-tls: create_ssl_handle failed[0m
+[1;31mE (158036) esp-tls: Failed to open new connection[0m
+[1;31mE (158036) transport_base: Failed to open a new connection[0m
+[1;31mE (158046) mqtt_client: Error transport connect[0m
+[1;31mE (158046) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (158056) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (173096) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (173096) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (173096) esp-tls: create_ssl_handle failed[0m
+[1;31mE (173106) esp-tls: Failed to open new connection[0m
+[1;31mE (173106) transport_base: Failed to open a new connection[0m
+[1;31mE (173116) mqtt_client: Error transport connect[0m
+[1;31mE (173116) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (173126) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (188176) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (188186) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (188186) esp-tls: create_ssl_handle failed[0m
+[1;31mE (188196) esp-tls: Failed to open new connection[0m
+[1;31mE (188196) transport_base: Failed to open a new connection[0m
+[1;31mE (188206) mqtt_client: Error transport connect[0m
+[1;31mE (188206) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (188206) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (198266) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (198266) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (198276) esp-tls: create_ssl_handle failed[0m
+[1;31mE (198276) esp-tls: Failed to open new connection[0m
+[1;31mE (198286) transport_base: Failed to open a new connection[0m
+[1;31mE (198286) mqtt_client: Error transport connect[0m
+[1;31mE (198296) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (198296) ESP32_AWS: MQTT disconnected[0m
+[0;32mI (209366) ESP32_AWS: MCU: 29.3C | MQ9: 9.3ppm | DHT: 26.3C | Hum: 63.3%[0m
+[1;31mE (213326) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (213326) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (213336) esp-tls: create_ssl_handle failed[0m
+[1;31mE (213346) esp-tls: Failed to open new connection[0m
+[1;31mE (213346) transport_base: Failed to open a new connection[0m
+[1;31mE (213356) mqtt_client: Error transport connect[0m
+[1;31mE (213356) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (213356) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (223396) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (223396) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (223406) esp-tls: create_ssl_handle failed[0m
+[1;31mE (223406) esp-tls: Failed to open new connection[0m
+[1;31mE (223416) transport_base: Failed to open a new connection[0m
+[1;31mE (223426) mqtt_client: Error transport connect[0m
+[1;31mE (223426) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (223426) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (233476) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (233476) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (233486) esp-tls: create_ssl_handle failed[0m
+[1;31mE (233486) esp-tls: Failed to open new connection[0m
+[1;31mE (233496) transport_base: Failed to open a new connection[0m
+[1;31mE (233496) mqtt_client: Error transport connect[0m
+[1;31mE (233496) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (233506) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (248556) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (248556) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (248566) esp-tls: create_ssl_handle failed[0m
+[1;31mE (248566) esp-tls: Failed to open new connection[0m
+[1;31mE (248576) transport_base: Failed to open a new connection[0m
+[1;31mE (248586) mqtt_client: Error transport connect[0m
+[1;31mE (248586) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (248586) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (263616) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (263616) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (263626) esp-tls: create_ssl_handle failed[0m
+[1;31mE (263626) esp-tls: Failed to open new connection[0m
+[1;31mE (263636) transport_base: Failed to open a new connection[0m
+[1;31mE (263646) mqtt_client: Error transport connect[0m
+[1;31mE (263646) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (263646) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (273696) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (273696) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (273696) esp-tls: create_ssl_handle failed[0m
+[1;31mE (273706) esp-tls: Failed to open new connection[0m
+[1;31mE (273706) transport_base: Failed to open a new connection[0m
+[1;31mE (273716) mqtt_client: Error transport connect[0m
+[1;31mE (273716) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (273716) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (288766) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (288766) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (288776) esp-tls: create_ssl_handle failed[0m
+[1;31mE (288776) esp-tls: Failed to open new connection[0m
+[1;31mE (288786) transport_base: Failed to open a new connection[0m
+[1;31mE (288796) mqtt_client: Error transport connect[0m
+[1;31mE (288796) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (288796) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (303826) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (303826) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (303836) esp-tls: create_ssl_handle failed[0m
+[1;31mE (303836) esp-tls: Failed to open new connection[0m
+[1;31mE (303846) transport_base: Failed to open a new connection[0m
+[1;31mE (303856) mqtt_client: Error transport connect[0m
+[1;31mE (303856) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (303856) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (313946) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (313946) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (313956) esp-tls: create_ssl_handle failed[0m
+[1;31mE (313956) esp-tls: Failed to open new connection[0m
+[1;31mE (313956) transport_base: Failed to open a new connection[0m
+[1;31mE (313966) mqtt_client: Error transport connect[0m
+[1;31mE (313966) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (313976) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (329016) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (329016) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (329026) esp-tls: create_ssl_handle failed[0m
+[1;31mE (329026) esp-tls: Failed to open new connection[0m
+[1;31mE (329036) transport_base: Failed to open a new connection[0m
+[1;31mE (329036) mqtt_client: Error transport connect[0m
+[1;31mE (329046) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (329046) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (344096) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (344096) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (344106) esp-tls: create_ssl_handle failed[0m
+[1;31mE (344106) esp-tls: Failed to open new connection[0m
+[1;31mE (344106) transport_base: Failed to open a new connection[0m
+[1;31mE (344116) mqtt_client: Error transport connect[0m
+[1;31mE (344116) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (344126) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (359176) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (359186) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (359186) esp-tls: create_ssl_handle failed[0m
+[1;31mE (359196) esp-tls: Failed to open new connection[0m
+[1;31mE (359196) transport_base: Failed to open a new connection[0m
+[1;31mE (359206) mqtt_client: Error transport connect[0m
+[1;31mE (359206) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (359206) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (369356) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (369356) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (369366) esp-tls: create_ssl_handle failed[0m
+[1;31mE (369366) esp-tls: Failed to open new connection[0m
+[1;31mE (369376) transport_base: Failed to open a new connection[0m
+[1;31mE (369386) mqtt_client: Error transport connect[0m
+[1;31mE (369386) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (369386) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (379456) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (379456) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (379456) esp-tls: create_ssl_handle failed[0m
+[1;31mE (379466) esp-tls: Failed to open new connection[0m
+[1;31mE (379466) transport_base: Failed to open a new connection[0m
+[1;31mE (379476) mqtt_client: Error transport connect[0m
+[1;31mE (379476) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (379476) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (394526) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (394526) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (394536) esp-tls: create_ssl_handle failed[0m
+[1;31mE (394536) esp-tls: Failed to open new connection[0m
+[1;31mE (394546) transport_base: Failed to open a new connection[0m
+[1;31mE (394546) mqtt_client: Error transport connect[0m
+[1;31mE (394556) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (394556) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (409606) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (409606) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (409616) esp-tls: create_ssl_handle failed[0m
+[1;31mE (409616) esp-tls: Failed to open new connection[0m
+[1;31mE (409626) transport_base: Failed to open a new connection[0m
+[1;31mE (409626) mqtt_client: Error transport connect[0m
+[1;31mE (409636) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (409636) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (424676) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (424676) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (424676) esp-tls: create_ssl_handle failed[0m
+[1;31mE (424686) esp-tls: Failed to open new connection[0m
+[1;31mE (424686) transport_base: Failed to open a new connection[0m
+[1;31mE (424696) mqtt_client: Error transport connect[0m
+[1;31mE (424696) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (424706) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (439766) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (439766) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (439776) esp-tls: create_ssl_handle failed[0m
+[1;31mE (439786) esp-tls: Failed to open new connection[0m
+[1;31mE (439786) transport_base: Failed to open a new connection[0m
+[1;31mE (439796) mqtt_client: Error transport connect[0m
+[1;31mE (439796) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (439796) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (449846) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (449846) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (449856) esp-tls: create_ssl_handle failed[0m
+[1;31mE (449856) esp-tls: Failed to open new connection[0m
+[1;31mE (449856) transport_base: Failed to open a new connection[0m
+[1;31mE (449866) mqtt_client: Error transport connect[0m
+[1;31mE (449866) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (449876) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (464926) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (464926) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (464936) esp-tls: create_ssl_handle failed[0m
+[1;31mE (464936) esp-tls: Failed to open new connection[0m
+[1;31mE (464936) transport_base: Failed to open a new connection[0m
+[1;31mE (464946) mqtt_client: Error transport connect[0m
+[1;31mE (464946) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (464956) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (480006) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (480006) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (480006) esp-tls: create_ssl_handle failed[0m
+[1;31mE (480016) esp-tls: Failed to open new connection[0m
+[1;31mE (480016) transport_base: Failed to open a new connection[0m
+[1;31mE (480026) mqtt_client: Error transport connect[0m
+[1;31mE (480026) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (480026) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (490076) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (490076) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (490086) esp-tls: create_ssl_handle failed[0m
+[1;31mE (490086) esp-tls: Failed to open new connection[0m
+[1;31mE (490096) transport_base: Failed to open a new connection[0m
+[1;31mE (490096) mqtt_client: Error transport connect[0m
+[1;31mE (490106) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (490106) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (505166) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (505166) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (505166) esp-tls: create_ssl_handle failed[0m
+[1;31mE (505176) esp-tls: Failed to open new connection[0m
+[1;31mE (505176) transport_base: Failed to open a new connection[0m
+[1;31mE (505186) mqtt_client: Error transport connect[0m
+[1;31mE (505186) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (505186) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (520246) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (520246) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (520246) esp-tls: create_ssl_handle failed[0m
+[1;31mE (520256) esp-tls: Failed to open new connection[0m
+[1;31mE (520256) transport_base: Failed to open a new connection[0m
+[1;31mE (520266) mqtt_client: Error transport connect[0m
+[1;31mE (520266) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (520266) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (530316) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (530316) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (530316) esp-tls: create_ssl_handle failed[0m
+[1;31mE (530326) esp-tls: Failed to open new connection[0m
+[1;31mE (530326) transport_base: Failed to open a new connection[0m
+[1;31mE (530336) mqtt_client: Error transport connect[0m
+[1;31mE (530336) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (530346) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (545386) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (545386) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (545396) esp-tls: create_ssl_handle failed[0m
+[1;31mE (545396) esp-tls: Failed to open new connection[0m
+[1;31mE (545406) transport_base: Failed to open a new connection[0m
+[1;31mE (545406) mqtt_client: Error transport connect[0m
+[1;31mE (545406) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (545416) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (560456) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (560456) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (560456) esp-tls: create_ssl_handle failed[0m
+[1;31mE (560466) esp-tls: Failed to open new connection[0m
+[1;31mE (560466) transport_base: Failed to open a new connection[0m
+[1;31mE (560476) mqtt_client: Error transport connect[0m
+[1;31mE (560476) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (560476) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (575546) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (575546) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (575556) esp-tls: create_ssl_handle failed[0m
+[1;31mE (575556) esp-tls: Failed to open new connection[0m
+[1;31mE (575566) transport_base: Failed to open a new connection[0m
+[1;31mE (575566) mqtt_client: Error transport connect[0m
+[1;31mE (575576) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (575576) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (590626) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (590626) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (590626) esp-tls: create_ssl_handle failed[0m
+[1;31mE (590636) esp-tls: Failed to open new connection[0m
+[1;31mE (590636) transport_base: Failed to open a new connection[0m
+[1;31mE (590646) mqtt_client: Error transport connect[0m
+[1;31mE (590646) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (590656) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (605686) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (605686) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (605696) esp-tls: create_ssl_handle failed[0m
+[1;31mE (605696) esp-tls: Failed to open new connection[0m
+[1;31mE (605706) transport_base: Failed to open a new connection[0m
+[1;31mE (605716) mqtt_client: Error transport connect[0m
+[1;31mE (605716) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (605716) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (615766) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (615766) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (615776) esp-tls: create_ssl_handle failed[0m
+[1;31mE (615776) esp-tls: Failed to open new connection[0m
+[1;31mE (615786) transport_base: Failed to open a new connection[0m
+[1;31mE (615786) mqtt_client: Error transport connect[0m
+[1;31mE (615796) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (615796) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (630856) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (630856) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (630866) esp-tls: create_ssl_handle failed[0m
+[1;31mE (630866) esp-tls: Failed to open new connection[0m
+[1;31mE (630866) transport_base: Failed to open a new connection[0m
+[1;31mE (630876) mqtt_client: Error transport connect[0m
+[1;31mE (630876) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (630886) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (645946) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (645946) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (645956) esp-tls: create_ssl_handle failed[0m
+[1;31mE (645956) esp-tls: Failed to open new connection[0m
+[1;31mE (645956) transport_base: Failed to open a new connection[0m
+[1;31mE (645966) mqtt_client: Error transport connect[0m
+[1;31mE (645966) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (645976) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (661016) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (661016) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (661026) esp-tls: create_ssl_handle failed[0m
+[1;31mE (661026) esp-tls: Failed to open new connection[0m
+[1;31mE (661036) transport_base: Failed to open a new connection[0m
+[1;31mE (661036) mqtt_client: Error transport connect[0m
+[1;31mE (661046) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (661046) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (676076) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (676076) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (676086) esp-tls: create_ssl_handle failed[0m
+[1;31mE (676086) esp-tls: Failed to open new connection[0m
+[1;31mE (676096) transport_base: Failed to open a new connection[0m
+[1;31mE (676106) mqtt_client: Error transport connect[0m
+[1;31mE (676106) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (676106) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (686156) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (686156) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (686166) esp-tls: create_ssl_handle failed[0m
+[1;31mE (686166) esp-tls: Failed to open new connection[0m
+[1;31mE (686176) transport_base: Failed to open a new connection[0m
+[1;31mE (686176) mqtt_client: Error transport connect[0m
+[1;31mE (686186) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (686186) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (701216) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (701216) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (701226) esp-tls: create_ssl_handle failed[0m
+[1;31mE (701226) esp-tls: Failed to open new connection[0m
+[1;31mE (701236) transport_base: Failed to open a new connection[0m
+[1;31mE (701246) mqtt_client: Error transport connect[0m
+[1;31mE (701246) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (701246) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (711346) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (711346) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (711356) esp-tls: create_ssl_handle failed[0m
+[1;31mE (711356) esp-tls: Failed to open new connection[0m
+[1;31mE (711366) transport_base: Failed to open a new connection[0m
+[1;31mE (711366) mqtt_client: Error transport connect[0m
+[1;31mE (711366) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (711376) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (726416) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (726416) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (726426) esp-tls: create_ssl_handle failed[0m
+[1;31mE (726426) esp-tls: Failed to open new connection[0m
+[1;31mE (726426) transport_base: Failed to open a new connection[0m
+[1;31mE (726436) mqtt_client: Error transport connect[0m
+[1;31mE (726436) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (726446) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (741586) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (741586) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (741596) esp-tls: create_ssl_handle failed[0m
+[1;31mE (741596) esp-tls: Failed to open new connection[0m
+[1;31mE (741606) transport_base: Failed to open a new connection[0m
+[1;31mE (741606) mqtt_client: Error transport connect[0m
+[1;31mE (741616) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (741616) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (756656) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (756656) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (756666) esp-tls: create_ssl_handle failed[0m
+[1;31mE (756666) esp-tls: Failed to open new connection[0m
+[1;31mE (756666) transport_base: Failed to open a new connection[0m
+[1;31mE (756676) mqtt_client: Error transport connect[0m
+[1;31mE (756676) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (756686) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (771746) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (771746) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (771756) esp-tls: create_ssl_handle failed[0m
+[1;31mE (771756) esp-tls: Failed to open new connection[0m
+[1;31mE (771766) transport_base: Failed to open a new connection[0m
+[1;31mE (771776) mqtt_client: Error transport connect[0m
+[1;31mE (771776) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (771776) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (786946) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (786946) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (786956) esp-tls: create_ssl_handle failed[0m
+[1;31mE (786956) esp-tls: Failed to open new connection[0m
+[1;31mE (786966) transport_base: Failed to open a new connection[0m
+[1;31mE (786976) mqtt_client: Error transport connect[0m
+[1;31mE (786976) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (786976) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (797026) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (797026) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (797036) esp-tls: create_ssl_handle failed[0m
+[1;31mE (797036) esp-tls: Failed to open new connection[0m
+[1;31mE (797046) transport_base: Failed to open a new connection[0m
+[1;31mE (797056) mqtt_client: Error transport connect[0m
+[1;31mE (797056) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (797056) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (807106) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (807106) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (807106) esp-tls: create_ssl_handle failed[0m
+[1;31mE (807116) esp-tls: Failed to open new connection[0m
+[1;31mE (807116) transport_base: Failed to open a new connection[0m
+[1;31mE (807126) mqtt_client: Error transport connect[0m
+[1;31mE (807126) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (807126) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (822176) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (822176) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (822186) esp-tls: create_ssl_handle failed[0m
+[1;31mE (822186) esp-tls: Failed to open new connection[0m
+[1;31mE (822196) transport_base: Failed to open a new connection[0m
+[1;31mE (822196) mqtt_client: Error transport connect[0m
+[1;31mE (822206) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (822206) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (837266) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (837266) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (837266) esp-tls: create_ssl_handle failed[0m
+[1;31mE (837276) esp-tls: Failed to open new connection[0m
+[1;31mE (837276) transport_base: Failed to open a new connection[0m
+[1;31mE (837286) mqtt_client: Error transport connect[0m
+[1;31mE (837286) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (837286) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (852346) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (852346) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (852346) esp-tls: create_ssl_handle failed[0m
+[1;31mE (852356) esp-tls: Failed to open new connection[0m
+[1;31mE (852356) transport_base: Failed to open a new connection[0m
+[1;31mE (852366) mqtt_client: Error transport connect[0m
+[1;31mE (852366) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (852376) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (867406) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (867406) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (867416) esp-tls: create_ssl_handle failed[0m
+[1;31mE (867416) esp-tls: Failed to open new connection[0m
+[1;31mE (867426) transport_base: Failed to open a new connection[0m
+[1;31mE (867436) mqtt_client: Error transport connect[0m
+[1;31mE (867436) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (867436) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (877486) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (877486) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (877486) esp-tls: create_ssl_handle failed[0m
+[1;31mE (877496) esp-tls: Failed to open new connection[0m
+[1;31mE (877496) transport_base: Failed to open a new connection[0m
+[1;31mE (877506) mqtt_client: Error transport connect[0m
+[1;31mE (877506) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (877506) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (887556) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (887556) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (887566) esp-tls: create_ssl_handle failed[0m
+[1;31mE (887566) esp-tls: Failed to open new connection[0m
+[1;31mE (887576) transport_base: Failed to open a new connection[0m
+[1;31mE (887586) mqtt_client: Error transport connect[0m
+[1;31mE (887586) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (887586) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (902646) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (902646) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (902656) esp-tls: create_ssl_handle failed[0m
+[1;31mE (902656) esp-tls: Failed to open new connection[0m
+[1;31mE (902666) transport_base: Failed to open a new connection[0m
+[1;31mE (902666) mqtt_client: Error transport connect[0m
+[1;31mE (902676) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (902676) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (917716) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (917716) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (917726) esp-tls: create_ssl_handle failed[0m
+[1;31mE (917726) esp-tls: Failed to open new connection[0m
+[1;31mE (917736) transport_base: Failed to open a new connection[0m
+[1;31mE (917746) mqtt_client: Error transport connect[0m
+[1;31mE (917746) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (917746) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (932776) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (932786) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (932786) esp-tls: create_ssl_handle failed[0m
+[1;31mE (932796) esp-tls: Failed to open new connection[0m
+[1;31mE (932796) transport_base: Failed to open a new connection[0m
+[1;31mE (932806) mqtt_client: Error transport connect[0m
+[1;31mE (932806) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (932806) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (942876) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (942876) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (942876) esp-tls: create_ssl_handle failed[0m
+[1;31mE (942886) esp-tls: Failed to open new connection[0m
+[1;31mE (942886) transport_base: Failed to open a new connection[0m
+[1;31mE (942896) mqtt_client: Error transport connect[0m
+[1;31mE (942896) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (942896) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (952956) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (952956) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (952966) esp-tls: create_ssl_handle failed[0m
+[1;31mE (952966) esp-tls: Failed to open new connection[0m
+[1;31mE (952976) transport_base: Failed to open a new connection[0m
+[1;31mE (952976) mqtt_client: Error transport connect[0m
+[1;31mE (952986) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (952986) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (968046) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (968046) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (968056) esp-tls: create_ssl_handle failed[0m
+[1;31mE (968056) esp-tls: Failed to open new connection[0m
+[1;31mE (968066) transport_base: Failed to open a new connection[0m
+[1;31mE (968066) mqtt_client: Error transport connect[0m
+[1;31mE (968076) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (968076) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (983256) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (983256) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (983266) esp-tls: create_ssl_handle failed[0m
+[1;31mE (983266) esp-tls: Failed to open new connection[0m
+[1;31mE (983276) transport_base: Failed to open a new connection[0m
+[1;31mE (983286) mqtt_client: Error transport connect[0m
+[1;31mE (983286) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (983286) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (998326) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (998326) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (998336) esp-tls: create_ssl_handle failed[0m
+[1;31mE (998336) esp-tls: Failed to open new connection[0m
+[1;31mE (998346) transport_base: Failed to open a new connection[0m
+[1;31mE (998356) mqtt_client: Error transport connect[0m
+[1;31mE (998356) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (998356) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1013386) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1013386) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1013396) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1013406) esp-tls: Failed to open new connection[0m
+[1;31mE (1013406) transport_base: Failed to open a new connection[0m
+[1;31mE (1013416) mqtt_client: Error transport connect[0m
+[1;31mE (1013416) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1013416) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1023486) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1023486) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1023496) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1023496) esp-tls: Failed to open new connection[0m
+[1;31mE (1023506) transport_base: Failed to open a new connection[0m
+[1;31mE (1023506) mqtt_client: Error transport connect[0m
+[1;31mE (1023516) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1023516) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1038656) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1038656) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1038666) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1038666) esp-tls: Failed to open new connection[0m
+[1;31mE (1038676) transport_base: Failed to open a new connection[0m
+[1;31mE (1038676) mqtt_client: Error transport connect[0m
+[1;31mE (1038686) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1038686) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1053736) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1053736) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1053736) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1053746) esp-tls: Failed to open new connection[0m
+[1;31mE (1053746) transport_base: Failed to open a new connection[0m
+[1;31mE (1053756) mqtt_client: Error transport connect[0m
+[1;31mE (1053756) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1053766) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1068806) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1068806) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1068806) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1068816) esp-tls: Failed to open new connection[0m
+[1;31mE (1068816) transport_base: Failed to open a new connection[0m
+[1;31mE (1068826) mqtt_client: Error transport connect[0m
+[1;31mE (1068826) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1068826) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1083876) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1083876) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1083876) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1083886) esp-tls: Failed to open new connection[0m
+[1;31mE (1083886) transport_base: Failed to open a new connection[0m
+[1;31mE (1083896) mqtt_client: Error transport connect[0m
+[1;31mE (1083896) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1083906) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1098976) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1098976) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1098986) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1098986) esp-tls: Failed to open new connection[0m
+[1;31mE (1098996) transport_base: Failed to open a new connection[0m
+[1;31mE (1098996) mqtt_client: Error transport connect[0m
+[1;31mE (1099006) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1099006) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1114046) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1114046) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1114056) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1114056) esp-tls: Failed to open new connection[0m
+[1;31mE (1114066) transport_base: Failed to open a new connection[0m
+[1;31mE (1114066) mqtt_client: Error transport connect[0m
+[1;31mE (1114076) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1114076) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1129126) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1129126) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1129136) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1129136) esp-tls: Failed to open new connection[0m
+[1;31mE (1129146) transport_base: Failed to open a new connection[0m
+[1;31mE (1129156) mqtt_client: Error transport connect[0m
+[1;31mE (1129156) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1129156) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1144196) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1144196) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1144206) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1144206) esp-tls: Failed to open new connection[0m
+[1;31mE (1144216) transport_base: Failed to open a new connection[0m
+[1;31mE (1144216) mqtt_client: Error transport connect[0m
+[1;31mE (1144216) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1144226) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1159486) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1159486) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1159496) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1159496) esp-tls: Failed to open new connection[0m
+[1;31mE (1159506) transport_base: Failed to open a new connection[0m
+[1;31mE (1159506) mqtt_client: Error transport connect[0m
+[1;31mE (1159516) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1159516) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1174566) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1174566) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1174566) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1174576) esp-tls: Failed to open new connection[0m
+[1;31mE (1174576) transport_base: Failed to open a new connection[0m
+[1;31mE (1174586) mqtt_client: Error transport connect[0m
+[1;31mE (1174586) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1174596) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1189636) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1189636) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1189646) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1189646) esp-tls: Failed to open new connection[0m
+[1;31mE (1189656) transport_base: Failed to open a new connection[0m
+[1;31mE (1189666) mqtt_client: Error transport connect[0m
+[1;31mE (1189666) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1189666) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1204846) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1204846) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1204856) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1204866) esp-tls: Failed to open new connection[0m
+[1;31mE (1204866) transport_base: Failed to open a new connection[0m
+[1;31mE (1204876) mqtt_client: Error transport connect[0m
+[1;31mE (1204876) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1204876) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1214986) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1214986) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1214996) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1214996) esp-tls: Failed to open new connection[0m
+[1;31mE (1215006) transport_base: Failed to open a new connection[0m
+[1;31mE (1215016) mqtt_client: Error transport connect[0m
+[1;31mE (1215016) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1215016) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1225096) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1225096) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1225106) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1225106) esp-tls: Failed to open new connection[0m
+[1;31mE (1225116) transport_base: Failed to open a new connection[0m
+[1;31mE (1225126) mqtt_client: Error transport connect[0m
+[1;31mE (1225126) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1225126) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1235186) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1235186) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1235196) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1235196) esp-tls: Failed to open new connection[0m
+[1;31mE (1235196) transport_base: Failed to open a new connection[0m
+[1;31mE (1235206) mqtt_client: Error transport connect[0m
+[1;31mE (1235206) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1235216) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1250316) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1250316) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1250326) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1250326) esp-tls: Failed to open new connection[0m
+[1;31mE (1250326) transport_base: Failed to open a new connection[0m
+[1;31mE (1250336) mqtt_client: Error transport connect[0m
+[1;31mE (1250336) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1250346) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1265386) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1265386) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1265386) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1265396) esp-tls: Failed to open new connection[0m
+[1;31mE (1265396) transport_base: Failed to open a new connection[0m
+[1;31mE (1265406) mqtt_client: Error transport connect[0m
+[1;31mE (1265406) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1265416) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1280466) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1280466) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1280466) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1280476) esp-tls: Failed to open new connection[0m
+[1;31mE (1280476) transport_base: Failed to open a new connection[0m
+[1;31mE (1280486) mqtt_client: Error transport connect[0m
+[1;31mE (1280486) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1280496) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1296556) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1296556) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1296566) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1296566) esp-tls: Failed to open new connection[0m
+[1;31mE (1296576) transport_base: Failed to open a new connection[0m
+[1;31mE (1296576) mqtt_client: Error transport connect[0m
+[1;31mE (1296586) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1296586) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1311636) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1311636) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1311646) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1311646) esp-tls: Failed to open new connection[0m
+[1;31mE (1311656) transport_base: Failed to open a new connection[0m
+[1;31mE (1311666) mqtt_client: Error transport connect[0m
+[1;31mE (1311666) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1311666) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1321716) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1321716) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1321726) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1321726) esp-tls: Failed to open new connection[0m
+[1;31mE (1321726) transport_base: Failed to open a new connection[0m
+[1;31mE (1321736) mqtt_client: Error transport connect[0m
+[1;31mE (1321736) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1321746) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1336846) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1336846) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1336856) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1336856) esp-tls: Failed to open new connection[0m
+[1;31mE (1336866) transport_base: Failed to open a new connection[0m
+[1;31mE (1336866) mqtt_client: Error transport connect[0m
+[1;31mE (1336876) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1336876) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1351916) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1351916) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1351926) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1351926) esp-tls: Failed to open new connection[0m
+[1;31mE (1351936) transport_base: Failed to open a new connection[0m
+[1;31mE (1351946) mqtt_client: Error transport connect[0m
+[1;31mE (1351946) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1351946) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1362026) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1362026) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1362036) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1362036) esp-tls: Failed to open new connection[0m
+[1;31mE (1362046) transport_base: Failed to open a new connection[0m
+[1;31mE (1362046) mqtt_client: Error transport connect[0m
+[1;31mE (1362056) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1362056) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1377096) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1377096) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1377096) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1377106) esp-tls: Failed to open new connection[0m
+[1;31mE (1377106) transport_base: Failed to open a new connection[0m
+[1;31mE (1377116) mqtt_client: Error transport connect[0m
+[1;31mE (1377116) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1377116) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1392246) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1392246) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1392256) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1392256) esp-tls: Failed to open new connection[0m
+[1;31mE (1392256) transport_base: Failed to open a new connection[0m
+[1;31mE (1392266) mqtt_client: Error transport connect[0m
+[1;31mE (1392266) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1392276) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1407346) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1407346) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1407356) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1407356) esp-tls: Failed to open new connection[0m
+[1;31mE (1407366) transport_base: Failed to open a new connection[0m
+[1;31mE (1407366) mqtt_client: Error transport connect[0m
+[1;31mE (1407366) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1407376) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1422606) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1422606) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1422616) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1422616) esp-tls: Failed to open new connection[0m
+[1;31mE (1422616) transport_base: Failed to open a new connection[0m
+[1;31mE (1422626) mqtt_client: Error transport connect[0m
+[1;31mE (1422626) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1422636) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1437696) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1437696) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1437696) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1437706) esp-tls: Failed to open new connection[0m
+[1;31mE (1437706) transport_base: Failed to open a new connection[0m
+[1;31mE (1437716) mqtt_client: Error transport connect[0m
+[1;31mE (1437716) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1437726) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1452766) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1452766) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1452776) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1452776) esp-tls: Failed to open new connection[0m
+[1;31mE (1452776) transport_base: Failed to open a new connection[0m
+[1;31mE (1452786) mqtt_client: Error transport connect[0m
+[1;31mE (1452786) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1452796) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1467916) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1467916) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1467926) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1467926) esp-tls: Failed to open new connection[0m
+[1;31mE (1467936) transport_base: Failed to open a new connection[0m
+[1;31mE (1467946) mqtt_client: Error transport connect[0m
+[1;31mE (1467946) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1467946) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1482996) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1482996) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1483006) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1483006) esp-tls: Failed to open new connection[0m
+[1;31mE (1483016) transport_base: Failed to open a new connection[0m
+[1;31mE (1483026) mqtt_client: Error transport connect[0m
+[1;31mE (1483026) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1483026) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1493206) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1493216) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1493216) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1493226) esp-tls: Failed to open new connection[0m
+[1;31mE (1493226) transport_base: Failed to open a new connection[0m
+[1;31mE (1493236) mqtt_client: Error transport connect[0m
+[1;31mE (1493236) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1493236) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1503296) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1503296) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1503296) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1503306) esp-tls: Failed to open new connection[0m
+[1;31mE (1503306) transport_base: Failed to open a new connection[0m
+[1;31mE (1503316) mqtt_client: Error transport connect[0m
+[1;31mE (1503316) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1503316) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1518376) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1518376) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1518376) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1518386) esp-tls: Failed to open new connection[0m
+[1;31mE (1518386) transport_base: Failed to open a new connection[0m
+[1;31mE (1518396) mqtt_client: Error transport connect[0m
+[1;31mE (1518396) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1518396) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1533566) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1533566) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1533566) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1533576) esp-tls: Failed to open new connection[0m
+[1;31mE (1533576) transport_base: Failed to open a new connection[0m
+[1;31mE (1533586) mqtt_client: Error transport connect[0m
+[1;31mE (1533586) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1533586) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1548656) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1548656) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1548666) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1548666) esp-tls: Failed to open new connection[0m
+[1;31mE (1548676) transport_base: Failed to open a new connection[0m
+[1;31mE (1548676) mqtt_client: Error transport connect[0m
+[1;31mE (1548686) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1548686) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1563726) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1563726) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1563726) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1563736) esp-tls: Failed to open new connection[0m
+[1;31mE (1563736) transport_base: Failed to open a new connection[0m
+[1;31mE (1563746) mqtt_client: Error transport connect[0m
+[1;31mE (1563746) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1563746) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1578926) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1578926) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1578936) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1578936) esp-tls: Failed to open new connection[0m
+[1;31mE (1578946) transport_base: Failed to open a new connection[0m
+[1;31mE (1578946) mqtt_client: Error transport connect[0m
+[1;31mE (1578956) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1578956) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1594076) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1594076) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1594086) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1594086) esp-tls: Failed to open new connection[0m
+[1;31mE (1594096) transport_base: Failed to open a new connection[0m
+[1;31mE (1594096) mqtt_client: Error transport connect[0m
+[1;31mE (1594106) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1594106) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1609336) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1609336) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1609346) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1609346) esp-tls: Failed to open new connection[0m
+[1;31mE (1609346) transport_base: Failed to open a new connection[0m
+[1;31mE (1609356) mqtt_client: Error transport connect[0m
+[1;31mE (1609356) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1609366) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1624406) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1624406) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1624416) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1624426) esp-tls: Failed to open new connection[0m
+[1;31mE (1624426) transport_base: Failed to open a new connection[0m
+[1;31mE (1624436) mqtt_client: Error transport connect[0m
+[1;31mE (1624436) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1624436) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1634626) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1634626) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1634636) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1634636) esp-tls: Failed to open new connection[0m
+[1;31mE (1634646) transport_base: Failed to open a new connection[0m
+[1;31mE (1634656) mqtt_client: Error transport connect[0m
+[1;31mE (1634656) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1634656) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1644776) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1644776) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1644786) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1644786) esp-tls: Failed to open new connection[0m
+[1;31mE (1644796) transport_base: Failed to open a new connection[0m
+[1;31mE (1644796) mqtt_client: Error transport connect[0m
+[1;31mE (1644806) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1644806) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1659866) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1659866) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1659866) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1659876) esp-tls: Failed to open new connection[0m
+[1;31mE (1659876) transport_base: Failed to open a new connection[0m
+[1;31mE (1659886) mqtt_client: Error transport connect[0m
+[1;31mE (1659886) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1659896) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1674966) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1674966) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1674966) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1674976) esp-tls: Failed to open new connection[0m
+[1;31mE (1674976) transport_base: Failed to open a new connection[0m
+[1;31mE (1674986) mqtt_client: Error transport connect[0m
+[1;31mE (1674986) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1674986) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1690126) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1690126) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1690136) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1690136) esp-tls: Failed to open new connection[0m
+[1;31mE (1690146) transport_base: Failed to open a new connection[0m
+[1;31mE (1690156) mqtt_client: Error transport connect[0m
+[1;31mE (1690156) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1690156) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1700216) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1700216) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1700226) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1700226) esp-tls: Failed to open new connection[0m
+[1;31mE (1700236) transport_base: Failed to open a new connection[0m
+[1;31mE (1700246) mqtt_client: Error transport connect[0m
+[1;31mE (1700246) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1700246) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1710406) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1710406) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1710416) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1710416) esp-tls: Failed to open new connection[0m
+[1;31mE (1710416) transport_base: Failed to open a new connection[0m
+[1;31mE (1710426) mqtt_client: Error transport connect[0m
+[1;31mE (1710426) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1710436) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1725466) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1725466) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1725476) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1725486) esp-tls: Failed to open new connection[0m
+[1;31mE (1725486) transport_base: Failed to open a new connection[0m
+[1;31mE (1725496) mqtt_client: Error transport connect[0m
+[1;31mE (1725496) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1725496) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1735586) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1735586) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1735586) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1735596) esp-tls: Failed to open new connection[0m
+[1;31mE (1735596) transport_base: Failed to open a new connection[0m
+[1;31mE (1735606) mqtt_client: Error transport connect[0m
+[1;31mE (1735606) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1735616) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1750666) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1750666) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1750676) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1750676) esp-tls: Failed to open new connection[0m
+[1;31mE (1750686) transport_base: Failed to open a new connection[0m
+[1;31mE (1750686) mqtt_client: Error transport connect[0m
+[1;31mE (1750696) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1750696) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1765736) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1765736) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1765746) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1765746) esp-tls: Failed to open new connection[0m
+[1;31mE (1765746) transport_base: Failed to open a new connection[0m
+[1;31mE (1765756) mqtt_client: Error transport connect[0m
+[1;31mE (1765756) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1765766) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1780806) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1780816) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1780816) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1780826) esp-tls: Failed to open new connection[0m
+[1;31mE (1780826) transport_base: Failed to open a new connection[0m
+[1;31mE (1780836) mqtt_client: Error transport connect[0m
+[1;31mE (1780836) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1780836) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1790906) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1790906) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1790906) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1790916) esp-tls: Failed to open new connection[0m
+[1;31mE (1790916) transport_base: Failed to open a new connection[0m
+[1;31mE (1790926) mqtt_client: Error transport connect[0m
+[1;31mE (1790926) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1790936) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1806006) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1806006) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1806016) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1806016) esp-tls: Failed to open new connection[0m
+[1;31mE (1806026) transport_base: Failed to open a new connection[0m
+[1;31mE (1806036) mqtt_client: Error transport connect[0m
+[1;31mE (1806036) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1806036) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1821076) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1821076) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1821076) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1821086) esp-tls: Failed to open new connection[0m
+[1;31mE (1821086) transport_base: Failed to open a new connection[0m
+[1;31mE (1821096) mqtt_client: Error transport connect[0m
+[1;31mE (1821096) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1821106) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1836156) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1836156) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1836166) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1836166) esp-tls: Failed to open new connection[0m
+[1;31mE (1836176) transport_base: Failed to open a new connection[0m
+[1;31mE (1836176) mqtt_client: Error transport connect[0m
+[1;31mE (1836186) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1836186) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1851226) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1851226) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1851226) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1851236) esp-tls: Failed to open new connection[0m
+[1;31mE (1851236) transport_base: Failed to open a new connection[0m
+[1;31mE (1851246) mqtt_client: Error transport connect[0m
+[1;31mE (1851246) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1851256) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1866346) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1866346) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1866346) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1866356) esp-tls: Failed to open new connection[0m
+[1;31mE (1866356) transport_base: Failed to open a new connection[0m
+[1;31mE (1866366) mqtt_client: Error transport connect[0m
+[1;31mE (1866366) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1866376) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1881416) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1881416) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1881426) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1881426) esp-tls: Failed to open new connection[0m
+[1;31mE (1881436) transport_base: Failed to open a new connection[0m
+[1;31mE (1881446) mqtt_client: Error transport connect[0m
+[1;31mE (1881446) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1881446) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1891486) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1891496) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1891496) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1891506) esp-tls: Failed to open new connection[0m
+[1;31mE (1891506) transport_base: Failed to open a new connection[0m
+[1;31mE (1891516) mqtt_client: Error transport connect[0m
+[1;31mE (1891516) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1891516) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1901566) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1901566) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1901566) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1901576) esp-tls: Failed to open new connection[0m
+[1;31mE (1901576) transport_base: Failed to open a new connection[0m
+[1;31mE (1901586) mqtt_client: Error transport connect[0m
+[1;31mE (1901586) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1901596) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1916846) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1916846) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1916856) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1916856) esp-tls: Failed to open new connection[0m
+[1;31mE (1916866) transport_base: Failed to open a new connection[0m
+[1;31mE (1916866) mqtt_client: Error transport connect[0m
+[1;31mE (1916876) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1916876) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1931956) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1931956) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1931966) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1931966) esp-tls: Failed to open new connection[0m
+[1;31mE (1931976) transport_base: Failed to open a new connection[0m
+[1;31mE (1931986) mqtt_client: Error transport connect[0m
+[1;31mE (1931986) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1931986) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1942036) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1942036) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1942046) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1942046) esp-tls: Failed to open new connection[0m
+[1;31mE (1942046) transport_base: Failed to open a new connection[0m
+[1;31mE (1942056) mqtt_client: Error transport connect[0m
+[1;31mE (1942056) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1942066) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1957126) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1957126) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1957136) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1957136) esp-tls: Failed to open new connection[0m
+[1;31mE (1957146) transport_base: Failed to open a new connection[0m
+[1;31mE (1957146) mqtt_client: Error transport connect[0m
+[1;31mE (1957156) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1957156) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1972206) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1972206) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1972206) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1972216) esp-tls: Failed to open new connection[0m
+[1;31mE (1972216) transport_base: Failed to open a new connection[0m
+[1;31mE (1972226) mqtt_client: Error transport connect[0m
+[1;31mE (1972226) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1972236) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (1987276) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (1987276) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (1987276) esp-tls: create_ssl_handle failed[0m
+[1;31mE (1987286) esp-tls: Failed to open new connection[0m
+[1;31mE (1987286) transport_base: Failed to open a new connection[0m
+[1;31mE (1987296) mqtt_client: Error transport connect[0m
+[1;31mE (1987296) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (1987296) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2002376) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2002376) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2002386) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2002386) esp-tls: Failed to open new connection[0m
+[1;31mE (2002396) transport_base: Failed to open a new connection[0m
+[1;31mE (2002406) mqtt_client: Error transport connect[0m
+[1;31mE (2002406) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2002406) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2012466) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2012466) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2012476) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2012476) esp-tls: Failed to open new connection[0m
+[1;31mE (2012476) transport_base: Failed to open a new connection[0m
+[1;31mE (2012486) mqtt_client: Error transport connect[0m
+[1;31mE (2012486) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2012496) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2027536) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2027536) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2027546) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2027546) esp-tls: Failed to open new connection[0m
+[1;31mE (2027556) transport_base: Failed to open a new connection[0m
+[1;31mE (2027566) mqtt_client: Error transport connect[0m
+[1;31mE (2027566) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2027566) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2037626) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2037626) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2037636) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2037636) esp-tls: Failed to open new connection[0m
+[1;31mE (2037636) transport_base: Failed to open a new connection[0m
+[1;31mE (2037646) mqtt_client: Error transport connect[0m
+[1;31mE (2037646) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2037656) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2052696) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2052696) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2052706) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2052706) esp-tls: Failed to open new connection[0m
+[1;31mE (2052716) transport_base: Failed to open a new connection[0m
+[1;31mE (2052726) mqtt_client: Error transport connect[0m
+[1;31mE (2052726) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2052726) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2062826) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2062826) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2062836) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2062836) esp-tls: Failed to open new connection[0m
+[1;31mE (2062846) transport_base: Failed to open a new connection[0m
+[1;31mE (2062856) mqtt_client: Error transport connect[0m
+[1;31mE (2062856) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2062856) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2072906) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2072906) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2072906) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2072916) esp-tls: Failed to open new connection[0m
+[1;31mE (2072916) transport_base: Failed to open a new connection[0m
+[1;31mE (2072926) mqtt_client: Error transport connect[0m
+[1;31mE (2072926) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2072936) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2087986) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2087986) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2087996) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2087996) esp-tls: Failed to open new connection[0m
+[1;31mE (2088006) transport_base: Failed to open a new connection[0m
+[1;31mE (2088016) mqtt_client: Error transport connect[0m
+[1;31mE (2088016) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2088016) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2103116) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2103116) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2103116) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2103126) esp-tls: Failed to open new connection[0m
+[1;31mE (2103126) transport_base: Failed to open a new connection[0m
+[1;31mE (2103136) mqtt_client: Error transport connect[0m
+[1;31mE (2103136) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2103146) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2118186) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2118186) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2118196) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2118196) esp-tls: Failed to open new connection[0m
+[1;31mE (2118206) transport_base: Failed to open a new connection[0m
+[1;31mE (2118216) mqtt_client: Error transport connect[0m
+[1;31mE (2118216) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2118216) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2133286) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2133286) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2133296) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2133296) esp-tls: Failed to open new connection[0m
+[1;31mE (2133306) transport_base: Failed to open a new connection[0m
+[1;31mE (2133306) mqtt_client: Error transport connect[0m
+[1;31mE (2133316) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2133316) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2148346) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2148346) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2148356) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2148356) esp-tls: Failed to open new connection[0m
+[1;31mE (2148366) transport_base: Failed to open a new connection[0m
+[1;31mE (2148376) mqtt_client: Error transport connect[0m
+[1;31mE (2148376) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2148376) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2163436) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2163436) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2163446) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2163446) esp-tls: Failed to open new connection[0m
+[1;31mE (2163446) transport_base: Failed to open a new connection[0m
+[1;31mE (2163456) mqtt_client: Error transport connect[0m
+[1;31mE (2163456) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2163466) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2178526) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2178526) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2178536) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2178536) esp-tls: Failed to open new connection[0m
+[1;31mE (2178546) transport_base: Failed to open a new connection[0m
+[1;31mE (2178556) mqtt_client: Error transport connect[0m
+[1;31mE (2178556) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2178556) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2188606) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2188606) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2188606) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2188616) esp-tls: Failed to open new connection[0m
+[1;31mE (2188616) transport_base: Failed to open a new connection[0m
+[1;31mE (2188626) mqtt_client: Error transport connect[0m
+[1;31mE (2188626) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2188636) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2203826) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2203826) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2203836) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2203836) esp-tls: Failed to open new connection[0m
+[1;31mE (2203846) transport_base: Failed to open a new connection[0m
+[1;31mE (2203856) mqtt_client: Error transport connect[0m
+[1;31mE (2203856) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2203856) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2218896) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2218896) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2218906) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2218906) esp-tls: Failed to open new connection[0m
+[1;31mE (2218916) transport_base: Failed to open a new connection[0m
+[1;31mE (2218916) mqtt_client: Error transport connect[0m
+[1;31mE (2218926) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2218926) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2233966) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2233966) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2233966) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2233976) esp-tls: Failed to open new connection[0m
+[1;31mE (2233976) transport_base: Failed to open a new connection[0m
+[1;31mE (2233986) mqtt_client: Error transport connect[0m
+[1;31mE (2233986) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2233986) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2249046) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2249046) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2249056) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2249056) esp-tls: Failed to open new connection[0m
+[1;31mE (2249056) transport_base: Failed to open a new connection[0m
+[1;31mE (2249066) mqtt_client: Error transport connect[0m
+[1;31mE (2249066) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2249076) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2264166) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2264166) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2264176) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2264176) esp-tls: Failed to open new connection[0m
+[1;31mE (2264176) transport_base: Failed to open a new connection[0m
+[1;31mE (2264186) mqtt_client: Error transport connect[0m
+[1;31mE (2264186) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2264196) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2279236) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2279236) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2279236) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2279246) esp-tls: Failed to open new connection[0m
+[1;31mE (2279246) transport_base: Failed to open a new connection[0m
+[1;31mE (2279256) mqtt_client: Error transport connect[0m
+[1;31mE (2279256) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2279266) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2294396) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2294396) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2294406) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2294406) esp-tls: Failed to open new connection[0m
+[1;31mE (2294416) transport_base: Failed to open a new connection[0m
+[1;31mE (2294426) mqtt_client: Error transport connect[0m
+[1;31mE (2294426) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2294426) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2304536) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2304536) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2304546) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2304546) esp-tls: Failed to open new connection[0m
+[1;31mE (2304556) transport_base: Failed to open a new connection[0m
+[1;31mE (2304566) mqtt_client: Error transport connect[0m
+[1;31mE (2304566) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2304566) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2314626) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2314626) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2314636) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2314636) esp-tls: Failed to open new connection[0m
+[1;31mE (2314646) transport_base: Failed to open a new connection[0m
+[1;31mE (2314656) mqtt_client: Error transport connect[0m
+[1;31mE (2314656) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2314656) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2324736) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2324736) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2324746) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2324746) esp-tls: Failed to open new connection[0m
+[1;31mE (2324756) transport_base: Failed to open a new connection[0m
+[1;31mE (2324756) mqtt_client: Error transport connect[0m
+[1;31mE (2324766) ESP32_AWS: MQTT error type: 1[0m
+[0;33mW (2324766) ESP32_AWS: MQTT disconnected[0m
+[1;31mE (2339816) esp-tls-mbedtls: mbedtls_x509_crt_parse of CA cert returned -0x2180[0m
+[1;31mE (2339816) esp-tls-mbedtls: Failed to set client configurations, returned [0x8015] (ESP_ERR_MBEDTLS_X509_CRT_PARSE_FAILED)[0m
+[1;31mE (2339826) esp-tls: create_ssl_handle failed[0m
+[1;31mE (2339826) esp-tls: Failed to open new connection[0m

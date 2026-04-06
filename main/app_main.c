@@ -2,140 +2,298 @@
 #include <string.h>
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
+#include "freertos/event_groups.h"
 #include "driver/spi_slave.h"
 #include "driver/gpio.h"
 #include "esp_log.h"
+#include "esp_wifi.h"
+#include "esp_event.h"
+#include "nvs_flash.h"
+#include "mqtt_client.h"
+// ─── WiFi credentials ────────────────────────────────────────────────────────
+#define WIFI_SSID      "Vodafone-DE8C"
+#define WIFI_PASSWORD  "cATGTgZELqck2hPK"
 
-// --- Updated Constants for VSPI (Standard Pins) ---
-#define GPIO_MOSI 23    // Connects to Nucleo PC3
-#define GPIO_MISO 19    // Connects to Nucleo PC2
-#define GPIO_SCLK 18    // Connects to Nucleo PC10
-#define GPIO_CS   5     // Connects to Nucleo PC0
-#define SPI_HOST  SPI3_HOST // VSPI is typically SPI3_HOST on ESP32
-#define GPIO_LED  2     // LED pin for status indication (optional)
+// ─── AWS IoT endpoint ────────────────────────────────────────────────────────
+// You will get this string from AWS Console (looks like xxxxx.iot.eu-west-1.amazonaws.com)
+#define AWS_IOT_ENDPOINT  "a2use3vi2ks08t-ats.iot.eu-north-1.amazonaws.com"
+#define AWS_IOT_PORT       8883
+#define MQTT_TOPIC         "stm32/sensors"
+#define MQTT_CLIENT_ID     "stm32-nucleo-bridge"
 
-// Structure must match STM32 exactly
-// Added __attribute__((packed)) to ensure no hidden padding bytes
+// ─── SPI pins (unchanged) ────────────────────────────────────────────────────
+#define GPIO_MOSI  23
+#define GPIO_MISO  19
+#define GPIO_SCLK  18
+#define GPIO_CS     5
+#define MY_SPI_HOST   SPI3_HOST
+
+static const char *TAG = "ESP32_AWS";
+
+// ─── Event group bits ────────────────────────────────────────────────────────
+#define WIFI_CONNECTED_BIT  BIT0
+#define WIFI_FAIL_BIT       BIT1
+#define MQTT_CONNECTED_BIT  BIT2
+
+static EventGroupHandle_t s_event_group;
+static esp_mqtt_client_handle_t mqtt_client = NULL;
+static bool mqtt_connected = false;
+
+// ─── Sensor data struct (must match STM32 exactly) ───────────────────────────
 typedef struct __attribute__((packed)) {
-    float mcu_temperature;
-    float mq9_ppm;
-    float am2302_temperature;
-    float am2302_humidity;
+    float    mcu_temperature;
+    float    mq9_ppm;
+    float    am2302_temperature;
+    float    am2302_humidity;
     uint32_t timestamp;
-    uint8_t checksum;
+    uint8_t  checksum;
 } SensorData_t;
 
 #define DATA_LENGTH_BYTES (sizeof(SensorData_t))
 
-static const char *TAG = "ESP32_SPI_SLAVE";
+// ─── AWS certificates (paste contents between the quotes) ────────────────────
+// You will download these 3 files from AWS Console.
+// In a real product you would store these in NVS flash,
+// but for a 1-2 hour demo embedding them as strings is fine.
 
-// --- LED Blinking Task ---
-void blink_task(void* arg)
+extern const uint8_t aws_root_ca_pem_start[]   asm("_binary_root_ca_pem_start");
+extern const uint8_t aws_root_ca_pem_end[]     asm("_binary_root_ca_pem_end");
+extern const uint8_t certificate_pem_crt_start[] asm("_binary_certificate_pem_crt_start");
+extern const uint8_t certificate_pem_crt_end[]   asm("_binary_certificate_pem_crt_end");
+extern const uint8_t private_pem_key_start[]   asm("_binary_private_pem_key_start");
+extern const uint8_t private_pem_key_end[]     asm("_binary_private_pem_key_end");
+
+// ─── Checksum ────────────────────────────────────────────────────────────────
+static uint8_t calculate_checksum(uint8_t *data, uint32_t size)
 {
-    gpio_reset_pin(GPIO_LED);
-    gpio_set_direction(GPIO_LED, GPIO_MODE_OUTPUT);
-    while (1) {
-        gpio_set_level(GPIO_LED, 1);
-        vTaskDelay(pdMS_TO_TICKS(500)); // LED ON for 500ms
-        gpio_set_level(GPIO_LED, 0);
-        vTaskDelay(pdMS_TO_TICKS(500)); // LED OFF for 500ms
+    uint8_t cs = 0;
+    for (uint32_t i = 0; i < size; i++) cs ^= data[i];
+    return cs;
+}
+
+// ─── WiFi event handler ──────────────────────────────────────────────────────
+static int s_retry_count = 0;
+#define WIFI_MAX_RETRY 5
+
+static void wifi_event_handler(void *arg, esp_event_base_t base,
+                                int32_t event_id, void *event_data)
+{
+    if (base == WIFI_EVENT && event_id == WIFI_EVENT_STA_START) {
+        esp_wifi_connect();
+    } else if (base == WIFI_EVENT && event_id == WIFI_EVENT_STA_DISCONNECTED) {
+        if (s_retry_count < WIFI_MAX_RETRY) {
+            esp_wifi_connect();
+            s_retry_count++;
+            ESP_LOGI(TAG, "Retrying WiFi... (%d/%d)", s_retry_count, WIFI_MAX_RETRY);
+        } else {
+            xEventGroupSetBits(s_event_group, WIFI_FAIL_BIT);
+        }
+    } else if (base == IP_EVENT && event_id == IP_EVENT_STA_GOT_IP) {
+        ip_event_got_ip_t *event = (ip_event_got_ip_t *)event_data;
+        ESP_LOGI(TAG, "Got IP: " IPSTR, IP2STR(&event->ip_info.ip));
+        s_retry_count = 0;
+        xEventGroupSetBits(s_event_group, WIFI_CONNECTED_BIT);
     }
 }
 
-uint8_t calculate_checksum(uint8_t *data, uint32_t size)
+static void wifi_init(void)
 {
-    uint8_t checksum = 0;
-    for(uint32_t i = 0; i < size; i++) {
-        checksum ^= data[i];
+    s_event_group = xEventGroupCreate();
+    ESP_ERROR_CHECK(esp_netif_init());
+    ESP_ERROR_CHECK(esp_event_loop_create_default());
+    esp_netif_create_default_wifi_sta();
+
+    wifi_init_config_t cfg = WIFI_INIT_CONFIG_DEFAULT();
+    ESP_ERROR_CHECK(esp_wifi_init(&cfg));
+
+    ESP_ERROR_CHECK(esp_event_handler_register(WIFI_EVENT, ESP_EVENT_ANY_ID,
+                                                &wifi_event_handler, NULL));
+    ESP_ERROR_CHECK(esp_event_handler_register(IP_EVENT, IP_EVENT_STA_GOT_IP,
+                                                &wifi_event_handler, NULL));
+
+    wifi_config_t wifi_config = {
+        .sta = {
+            .ssid     = WIFI_SSID,
+            .password = WIFI_PASSWORD,
+            .threshold.authmode = WIFI_AUTH_WPA2_PSK,
+        },
+    };
+    ESP_ERROR_CHECK(esp_wifi_set_mode(WIFI_MODE_STA));
+    ESP_ERROR_CHECK(esp_wifi_set_config(WIFI_IF_STA, &wifi_config));
+    ESP_ERROR_CHECK(esp_wifi_start());
+
+    ESP_LOGI(TAG, "Connecting to WiFi: %s", WIFI_SSID);
+    EventBits_t bits = xEventGroupWaitBits(s_event_group,
+                        WIFI_CONNECTED_BIT | WIFI_FAIL_BIT,
+                        pdFALSE, pdFALSE, pdMS_TO_TICKS(15000));
+
+    if (bits & WIFI_CONNECTED_BIT) {
+        ESP_LOGI(TAG, "WiFi connected!");
+    } else {
+        ESP_LOGE(TAG, "WiFi connection FAILED");
     }
-    return checksum;
 }
 
-void spi_slave_task(void* arg)
+// ─── MQTT event handler ──────────────────────────────────────────────────────
+static void mqtt_event_handler(void *arg, esp_event_base_t base,
+                                int32_t event_id, void *event_data)
 {
-    // Buffers must be DMA-capable (WORD_ALIGNED)
+    esp_mqtt_event_handle_t event = (esp_mqtt_event_handle_t)event_data;
+    switch (event->event_id) {
+        case MQTT_EVENT_CONNECTED:
+            ESP_LOGI(TAG, "MQTT connected to AWS IoT");
+            mqtt_connected = true;
+            xEventGroupSetBits(s_event_group, MQTT_CONNECTED_BIT);
+            break;
+        case MQTT_EVENT_DISCONNECTED:
+            ESP_LOGW(TAG, "MQTT disconnected");
+            mqtt_connected = false;
+            break;
+        case MQTT_EVENT_PUBLISHED:
+            ESP_LOGI(TAG, "MQTT message published, msg_id=%d", event->msg_id);
+            break;
+        case MQTT_EVENT_ERROR:
+            ESP_LOGE(TAG, "MQTT error type: %d", event->error_handle->error_type);
+            break;
+        default:
+            break;
+    }
+}
+
+static void mqtt_init(void)
+{
+    esp_mqtt_client_config_t mqtt_cfg = {
+        .broker = {
+            .address = {
+                .hostname  = AWS_IOT_ENDPOINT,
+                .transport = MQTT_TRANSPORT_OVER_SSL,
+                .port      = AWS_IOT_PORT,
+            },
+            .verification = {
+                .certificate     = (const char *)aws_root_ca_pem_start,
+                //.certificate_len = aws_root_ca_pem_end - aws_root_ca_pem_start,
+                .certificate_len = 0,
+            },
+        },
+        .credentials = {
+            .client_id = MQTT_CLIENT_ID,
+            .authentication = {
+                .certificate     = (const char *)certificate_pem_crt_start,
+                //.certificate_len = certificate_pem_crt_end - certificate_pem_crt_start,
+                .certificate_len = 0,
+                .key             = (const char *)private_pem_key_start,
+                //.key_len         = private_pem_key_end - private_pem_key_start,
+                .key_len         = 0,
+            },
+        },
+    };
+
+    mqtt_client = esp_mqtt_client_init(&mqtt_cfg);
+    esp_mqtt_client_register_event(mqtt_client, ESP_EVENT_ANY_ID,
+                                    mqtt_event_handler, NULL);
+    esp_mqtt_client_start(mqtt_client);
+
+    ESP_LOGI(TAG, "Waiting for MQTT connection...");
+    xEventGroupWaitBits(s_event_group, MQTT_CONNECTED_BIT,
+                        pdFALSE, pdTRUE, pdMS_TO_TICKS(20000));
+}
+
+// ─── SPI slave task ──────────────────────────────────────────────────────────
+void spi_slave_task(void *arg)
+{
     WORD_ALIGNED_ATTR uint8_t rx_buffer[DATA_LENGTH_BYTES];
     WORD_ALIGNED_ATTR uint8_t tx_buffer[DATA_LENGTH_BYTES];
+    memset(tx_buffer, 0, DATA_LENGTH_BYTES);
 
-    // 1. Configuration for SPI Bus (VSPI)
     spi_bus_config_t buscfg = {
-        .mosi_io_num = GPIO_MOSI,
-        .miso_io_num = GPIO_MISO,
-        .sclk_io_num = GPIO_SCLK,
+        .mosi_io_num  = GPIO_MOSI,
+        .miso_io_num  = GPIO_MISO,
+        .sclk_io_num  = GPIO_SCLK,
         .quadwp_io_num = -1,
         .quadhd_io_num = -1,
     };
-
-    // 2. Configuration for SPI Slave Interface
-    spi_slave_interface_config_t slavetrans_config = {
+    spi_slave_interface_config_t slavecfg = {
         .spics_io_num = GPIO_CS,
-        .flags = 0,
-        .queue_size = 3,
-        .mode = 0 // Mode 0 (CPOL=0, CPHA=0) to match Nucleo
+        .flags        = 0,
+        .queue_size   = 3,
+        .mode         = 0,
     };
 
-    // 3. Initialize SPI Slave
-    esp_err_t ret = spi_slave_initialize(SPI_HOST, &buscfg, &slavetrans_config, SPI_DMA_CH_AUTO);
-    if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "SPI Slave Initialization Failed");
-        return;
-    }
+    ESP_ERROR_CHECK(spi_slave_initialize(MY_SPI_HOST, &buscfg, &slavecfg, SPI_DMA_CH_AUTO));
+    ESP_LOGI(TAG, "SPI slave ready, waiting for STM32...");
 
-    ESP_LOGI(TAG, "VSPI Slave initialized. Waiting for Master on Pins 18, 19, 23, 5...");
+    char json_buf[256];
 
-    // 4. Prepare initial dummy data for transmission
-    memset(tx_buffer, 0, DATA_LENGTH_BYTES);
-    
     while (1) {
-        // Clear RX buffer before every transaction
         memset(rx_buffer, 0, DATA_LENGTH_BYTES);
-
         spi_slave_transaction_t t = {
-            .length = DATA_LENGTH_BYTES * 8, // length in bits
+            .length    = DATA_LENGTH_BYTES * 8,
             .tx_buffer = tx_buffer,
             .rx_buffer = rx_buffer,
         };
 
-        // Blocking wait for master to clock data
-        esp_err_t ret = spi_slave_transmit(SPI_HOST, &t, portMAX_DELAY);
+        esp_err_t ret = spi_slave_transmit(MY_SPI_HOST, &t, portMAX_DELAY);
+        if (ret != ESP_OK) continue;
 
-        if (ret == ESP_OK) {
-            // 1. Print RAW hex to see if anything is coming through
-            printf("Raw: ");
-              for(int i=0; i<DATA_LENGTH_BYTES; i++) {
-                    printf("%02X ", rx_buffer[i]);
-                }
-            printf("\n");
-            // Use a local struct to hold the data (prevents pointer alignment issues)
-            SensorData_t received;
-            memcpy(&received, rx_buffer, sizeof(SensorData_t));
+        SensorData_t received;
+        memcpy(&received, rx_buffer, sizeof(SensorData_t));
 
-            // Calculate checksum on everything EXCEPT the last byte (the checksum byte)
-            uint8_t calc = calculate_checksum(rx_buffer, DATA_LENGTH_BYTES - 1);
-            
-            if (received.checksum == calc) {
-                // LOG all four sensor values now that the structure is synced
-                ESP_LOGI(TAG, "MCU: %.1fC | MQ9: %.1fppm | DHT: %.1fC | Hum: %.1f%%", 
-                         received.mcu_temperature, 
-                         received.mq9_ppm, 
-                         received.am2302_temperature,
-                         received.am2302_humidity);
+        uint8_t calc = calculate_checksum(rx_buffer, DATA_LENGTH_BYTES - 1);
+        if (received.checksum != calc) {
+            ESP_LOGW(TAG, "Checksum error — skipping frame");
+            continue;
+        }
+
+        ESP_LOGI(TAG, "MCU: %.1fC | MQ9: %.1fppm | DHT: %.1fC | Hum: %.1f%%",
+                 received.mcu_temperature, received.mq9_ppm,
+                 received.am2302_temperature, received.am2302_humidity);
+
+        // ── Build JSON payload ──────────────────────────────────────────────
+        int len = snprintf(json_buf, sizeof(json_buf),
+            "{"
+            "\"device\":\"stm32-nucleo\","
+            "\"mcu_temp\":%.2f,"
+            "\"mq9_ppm\":%.2f,"
+            "\"dht_temp\":%.2f,"
+            "\"dht_humidity\":%.2f,"
+            "\"timestamp\":%lu"
+            "}",
+            received.mcu_temperature,
+            received.mq9_ppm,
+            received.am2302_temperature,
+            received.am2302_humidity,
+            (unsigned long)received.timestamp
+        );
+
+        // ── Publish to AWS IoT via MQTT ─────────────────────────────────────
+        if (mqtt_connected && len > 0) {
+            int msg_id = esp_mqtt_client_publish(mqtt_client, MQTT_TOPIC,
+                                                  json_buf, len, 1, 0);
+            if (msg_id >= 0) {
+                ESP_LOGI(TAG, "Published to %s (msg_id=%d)", MQTT_TOPIC, msg_id);
             } else {
-                // Helpful debug to see what is actually coming over the wire
-                ESP_LOGW(TAG, "Checksum Error! Expected: 0x%02X, Received: 0x%02X", 
-                         calc, received.checksum);
+                ESP_LOGW(TAG, "Publish failed — MQTT not ready");
             }
         }
     }
 }
 
+// ─── Entry point ─────────────────────────────────────────────────────────────
 void app_main(void)
 {
-    xTaskCreate(spi_slave_task, "spi_slave_task", 4096, NULL, 10, NULL);
-    //xTaskCreate(blink_task, "blink_task", 1024, NULL, 5, NULL);
-    
-    // Add this loop to keep app_main alive
-    while(1) {
-        vTaskDelay(pdMS_TO_TICKS(3000));
+    // NVS is required by WiFi driver
+    esp_err_t ret = nvs_flash_init();
+    if (ret == ESP_ERR_NVS_NO_FREE_PAGES ||
+        ret == ESP_ERR_NVS_NEW_VERSION_FOUND) {
+        ESP_ERROR_CHECK(nvs_flash_erase());
+        ret = nvs_flash_init();
     }
+    ESP_ERROR_CHECK(ret);
+
+    wifi_init();
+    mqtt_init();
+
+    xTaskCreate(spi_slave_task, "spi_slave", 4096, NULL, 10, NULL);
+
+    while (1) vTaskDelay(pdMS_TO_TICKS(5000));
 }

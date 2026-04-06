@@ -8,6 +8,7 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "bootloader/bootloader.bin"
   "bootloader/bootloader.elf"
   "bootloader/bootloader.map"
+  "certificate.pem.crt.S"
   "config/sdkconfig.cmake"
   "config/sdkconfig.h"
   "esp-idf/esptool_py/flasher_args.json.in"
@@ -18,7 +19,9 @@ if("${CONFIG}" STREQUAL "" OR "${CONFIG}" STREQUAL "")
   "flasher_args.json"
   "ldgen_libraries"
   "ldgen_libraries.in"
+  "private.pem.key.S"
   "project_elf_src_esp32.c"
+  "root_ca.pem.S"
   "x509_crt_bundle.S"
   )
 endif()
