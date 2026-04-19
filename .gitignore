@@ -1,1 +1,5 @@
-
+build/
+.devcontainer
+.github
+.vscode
+.clangd
