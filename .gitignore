@@ -1,5 +1,5 @@
 build/
-.devcontainer
-.github
-.vscode
-.clangd
+.devcontainer/
+.github/
+.vscode/
+.clangd/
