@@ -15,13 +15,12 @@
 #define WIFI_PASSWORD  "Wifi_Password"
 
 // ─── AWS IoT endpoint ────────────────────────────────────────────────────────
-// You will get this string from AWS Console (looks like xxxxx.iot.eu-west-1.amazonaws.com)
 #define AWS_IOT_ENDPOINT  "a2use3vi2ks08t-ats.iot.eu-north-1.amazonaws.com"
 #define AWS_IOT_PORT       8883
 #define MQTT_TOPIC         "stm32/sensors"
 #define MQTT_CLIENT_ID     "stm32-nucleo-bridge"
 
-// ─── SPI pins (unchanged) ────────────────────────────────────────────────────
+// ─── SPI pins ────────────────────────────────────────────────────
 #define GPIO_MOSI  23
 #define GPIO_MISO  19
 #define GPIO_SCLK  18
@@ -39,7 +38,7 @@ static EventGroupHandle_t s_event_group;
 static esp_mqtt_client_handle_t mqtt_client = NULL;
 static bool mqtt_connected = false;
 
-// ─── Sensor data struct (must match STM32 exactly) ───────────────────────────
+// ─── Sensor data struct ───────────────────────────
 typedef struct __attribute__((packed)) {
     float    mcu_temperature;
     float    mq9_ppm;
@@ -51,11 +50,7 @@ typedef struct __attribute__((packed)) {
 
 #define DATA_LENGTH_BYTES (sizeof(SensorData_t))
 
-// ─── AWS certificates (paste contents between the quotes) ────────────────────
-// You will download these 3 files from AWS Console.
-// In a real product you would store these in NVS flash,
-// but for a 1-2 hour demo embedding them as strings is fine.
-
+// ─── AWS certificates ────────────────────
 extern const uint8_t aws_root_ca_pem_start[]   asm("_binary_root_ca_pem_start");
 extern const uint8_t aws_root_ca_pem_end[]     asm("_binary_root_ca_pem_end");
 extern const uint8_t certificate_pem_crt_start[] asm("_binary_certificate_pem_crt_start");
