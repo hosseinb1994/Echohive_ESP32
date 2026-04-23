@@ -2,13 +2,13 @@
 
 ESP32 firmware built with **ESP-IDF v5.5** that acts as the IoT gateway in the EcoHive environmental monitoring pipeline. Receives sensor data from an STM32F401RE over SPI, validates it, and publishes a JSON payload to **AWS IoT Core** via MQTT over TLS 1.2.
 
-> Part of the **EcoHive IoT pipeline**: [STM32 firmware](https://github.com/YOUR_USERNAME/ecohive-stm32) → SPI → ESP32 (this repo) → MQTT/TLS → AWS IoT Core
+> Part of the **EcoHive IoT pipeline**: [STM32 firmware](https://github.com/hosseinb1994/ecohive) → SPI → ESP32 (this repo) → MQTT/TLS → AWS IoT Core
 
 ---
 
 ## System architecture
 
-![ESP32 firmware architecture](esp32_diagram.svg)
+![ESP32 firmware architecture](Ecohive_esp32_diagram.svg)
 
 ---
 
