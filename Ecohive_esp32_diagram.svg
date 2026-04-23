@@ -1,0 +1,64 @@
+<svg width="700" height="480" viewBox="0 0 700 480" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+
+  <rect width="700" height="480" fill="#ffffff"/>
+
+  <!-- Title -->
+  <text x="350" y="28" text-anchor="middle" font-size="15" font-weight="bold" fill="#1a1a1a">ESP32 — IoT gateway firmware architecture</text>
+
+  <!-- SPI input -->
+  <rect x="230" y="45" width="240" height="52" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+  <text x="350" y="67" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e3a6e">SPI slave input (from STM32)</text>
+  <text x="350" y="83" text-anchor="middle" font-size="10" fill="#1e40af">GPIO 18/19/23/5 — DMA — Mode 0 — 21 bytes</text>
+
+  <line x1="350" y1="97" x2="350" y2="127" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+  <!-- Checksum + parse -->
+  <rect x="195" y="127" width="310" height="52" rx="6" fill="#ede9fe" stroke="#7c3aed" stroke-width="1"/>
+  <text x="350" y="149" text-anchor="middle" font-size="11" font-weight="bold" fill="#3b0764">Frame validation + parsing</text>
+  <text x="350" y="165" text-anchor="middle" font-size="10" fill="#5b21b6">XOR checksum verify — memcpy to SensorData_t struct — skip on error</text>
+
+  <line x1="350" y1="179" x2="350" y2="209" stroke="#7c3aed" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+  <!-- JSON build -->
+  <rect x="195" y="209" width="310" height="52" rx="6" fill="#fef3c7" stroke="#d97706" stroke-width="1"/>
+  <text x="350" y="231" text-anchor="middle" font-size="11" font-weight="bold" fill="#78350f">JSON payload builder</text>
+  <text x="350" y="247" text-anchor="middle" font-size="10" fill="#92400e">snprintf — device / mcu_temp / mq9_ppm / dht_temp / dht_humidity / timestamp</text>
+
+  <!-- WiFi box (parallel) -->
+  <rect x="30" y="209" width="145" height="52" rx="6" fill="#dcfce7" stroke="#16a34a" stroke-width="1"/>
+  <text x="102" y="231" text-anchor="middle" font-size="11" font-weight="bold" fill="#14532d">WiFi STA</text>
+  <text x="102" y="247" text-anchor="middle" font-size="10" fill="#166534">WPA2 — auto retry</text>
+  <text x="102" y="261" text-anchor="middle" font-size="10" fill="#166534">192.168.x.x DHCP</text>
+
+  <!-- Arrow WiFi → MQTT -->
+  <line x1="175" y1="235" x2="195" y2="235" stroke="#16a34a" stroke-width="1" marker-end="url(#arr2)"/>
+
+  <line x1="350" y1="261" x2="350" y2="291" stroke="#d97706" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+  <!-- MQTT / TLS -->
+  <rect x="140" y="291" width="420" height="66" rx="6" fill="#fee2e2" stroke="#dc2626" stroke-width="1"/>
+  <text x="350" y="313" text-anchor="middle" font-size="11" font-weight="bold" fill="#7f1d1d">MQTT client — TLS 1.2 mutual authentication</text>
+  <text x="350" y="329" text-anchor="middle" font-size="10" fill="#991b1b">port 8883 — QoS 1 — topic: stm32/sensors</text>
+  <text x="350" y="345" text-anchor="middle" font-size="10" fill="#991b1b">X.509 device cert + private key + Amazon Root CA (embedded binary blobs)</text>
+
+  <line x1="350" y1="357" x2="350" y2="387" stroke="#dc2626" stroke-width="1.5" marker-end="url(#arr2)"/>
+
+  <!-- AWS -->
+  <rect x="185" y="387" width="330" height="52" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+  <text x="350" y="409" text-anchor="middle" font-size="11" font-weight="bold" fill="#064e3b">AWS IoT Core (eu-north-1)</text>
+  <text x="350" y="425" text-anchor="middle" font-size="10" fill="#065f46">Thing: stm32-nucleo — policy: iot:Connect / Publish</text>
+  <text x="350" y="441" text-anchor="middle" font-size="10" fill="#065f46">MQTT test client — live JSON visible in browser</text>
+
+  <!-- Cert box on right -->
+  <rect x="530" y="291" width="145" height="66" rx="6" fill="#f1f5f9" stroke="#64748b" stroke-width="1"/>
+  <text x="602" y="313" text-anchor="middle" font-size="11" font-weight="bold" fill="#1e293b">Certificates</text>
+  <text x="602" y="329" text-anchor="middle" font-size="10" fill="#334155">root_ca.pem</text>
+  <text x="602" y="343" text-anchor="middle" font-size="10" fill="#334155">certificate.pem.crt</text>
+  <text x="602" y="357" text-anchor="middle" font-size="10" fill="#334155">private.pem.key</text>
+
+  <defs>
+    <marker id="arr2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#555" stroke-width="1.5" stroke-linecap="round"/>
+    </marker>
+  </defs>
+</svg>
